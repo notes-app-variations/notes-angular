@@ -1,1 +1,64 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+@import url("https://fonts.googleapis.com/css?family=Cedarville+Cursive&display=swap");
+
+html,
+body {
+  @apply h-full;
+}
+
+h1 {
+  @apply text-2xl;
+}
+
+h2 {
+  @apply text-xl font-bold;
+}
+
+h3 {
+  @apply text-lg font-bold;
+}
+
+ul {
+  @apply list-disc;
+}
+
+ol {
+  @apply list-decimal;
+}
+
+a {
+  @apply text-blue-600;
+}
+
+table {
+  @apply border border-gray-600 w-full;
+}
+
+th {
+  @apply bg-gray-400 px-4;
+}
+
+td {
+}
+
+.page-title {
+  font-family: "Cedarville Cursive", cursive;
+  font-size: 3rem;
+}
+
+.btn-main {
+  @apply shadow bg-purple-500 text-white font-bold py-2 px-4 rounded;
+}
+
+.btn-main:hover {
+  @apply bg-purple-400;
+}
+
+.btn-main:focus {
+  @apply shadow-outline outline-none;
+}
