@@ -22,14 +22,15 @@
     >
       <span class="block sm:inline">{{ alert }}</span>
     </div>
-    <div *ngFor="let n of filteredNotes">
+    <div *ngFor="let n of notes">
       <label class="text-gray-500 font-bold flex items-center">
         <input class="leading-tight" type="checkbox" />
         <span class="text-sm">
           Select for delete
         </span>
       </label>
-      <!-- <note-card :note="n" /> -->
+
+      <app-note [note]="n"></app-note>
     </div>
   </section>
 </div>

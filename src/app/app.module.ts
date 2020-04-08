@@ -8,9 +8,16 @@ import { AppComponent } from './app.component';
 import { AuthComponent } from './auth/auth.component';
 import { NotesComponent } from './notes/notes.component';
 import { NoteComponent } from './note/note.component';
+import { CompiledPipe } from './note/note.pipe';
 
 @NgModule({
-  declarations: [AppComponent, AuthComponent, NotesComponent, NoteComponent],
+  declarations: [
+    AppComponent,
+    AuthComponent,
+    NotesComponent,
+    NoteComponent,
+    CompiledPipe,
+  ],
   imports: [
     BrowserModule,
     FormsModule,

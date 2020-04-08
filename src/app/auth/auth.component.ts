@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { login } from '../../api/authActions';
+import { login, register } from '../../api/authActions';
 
 type User = {
   userID: string;
@@ -36,10 +36,22 @@ export class AuthComponent implements OnInit {
 
   ngOnInit() {}
 
-  register(e, data) {
+  async register(e, data) {
     e.preventDefault();
-    console.log(data);
-    alert('register');
+    this.loading = true;
+    try {
+      await register(data);
+      await this.router.navigate(['/notes']).then((e) => {
+        if (e) {
+          console.log('Navigation is successful!');
+        } else {
+          console.log('Navigation has failed!');
+        }
+      });
+    } catch (e) {
+      this.alert = e;
+      this.loading = false;
+    }
   }
 
   async login(e, data) {
@@ -47,7 +59,6 @@ export class AuthComponent implements OnInit {
     this.loading = true;
     try {
       await login({ email: data.email, password: data.password });
-      console.log(data);
       await this.router.navigate(['/notes']).then((e) => {
         if (e) {
           console.log('Navigation is successful!');

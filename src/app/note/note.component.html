@@ -1,1 +1,16 @@
-<div>Note</div>
+<article
+  class="note-card rounded shadow-md bg-teal-100 p-4 overflow-hidden flex flex-col text-gray-700"
+>
+  <header class="flex justify-between mb-3">
+    <h2>{{ note.title }}</h2>
+    <span
+      class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700"
+      >{{ note.category }}</span
+    >
+  </header>
+
+  <p class="note-body" [innerHTML]="note.body | compileMarkdown"></p>
+  <footer class="flex justify-end mt-auto">
+    <p class="text-xs italic text-gray-500 mt-2">{{ note.createdAt }}</p>
+  </footer>
+</article>
