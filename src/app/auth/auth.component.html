@@ -1,0 +1,81 @@
+<div class="auth-page h-full flex justify-center items-center">
+  <div class="auth-tabs h-64">
+    <ul class="flex border-b list-none">
+      <li class="mr-1 w-1/2">
+        <button
+          (click)="currentTab = 'Login'"
+          class="bg-orange-100 w-full inline-block py-2 px-4 text-gray-500 font-semibold focus:outline-none"
+        >
+          Login
+        </button>
+      </li>
+      <li class="w-1/2">
+        <button
+          (click)="currentTab = 'Register'"
+          class="bg-orange-100 w-full inline-block py-2 px-4 text-gray-500 font-semibold focus:outline-none"
+        >
+          Register
+        </button>
+      </li>
+    </ul>
+    <div class="p-6 bg-orange-200 border-l border-r border-b shadow">
+      <form
+        *ngIf="currentTab == 'Login'"
+        [formGroup]="userForm"
+        (ngSubmit)="login($event, userForm.value)"
+      >
+        <input
+          class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal"
+          type="email"
+          formControlName="email"
+          placeholder="jane@example.com"
+          required
+        />
+        <input
+          class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal my-2"
+          type="password"
+          formControlName="password"
+          placeholder="*********"
+          required
+        />
+        <button class="w-full btn-main" type="submit" required>
+          {{ loading ? "Loading..." : "Login" }}
+        </button>
+      </form>
+      <form
+        *ngIf="currentTab == 'Register'"
+        [formGroup]="userForm"
+        (ngSubmit)="register($event, userForm.value)"
+      >
+        <input
+          class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal"
+          type="email"
+          formControlName="email"
+          placeholder="jane@example.com"
+          required
+        />
+        <input
+          class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal mt-2"
+          type="text"
+          formControlName="username"
+          placeholder="username"
+          required
+        />
+        <input
+          class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal my-2"
+          type="password"
+          formControlName="password"
+          placeholder="*********"
+          required
+        />
+        <button
+          class="w-full shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+          type="submit"
+        >
+          Register
+        </button>
+        <p>{{ alert }}</p>
+      </form>
+    </div>
+  </div>
+</div>
