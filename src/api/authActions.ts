@@ -22,7 +22,6 @@ export const register = async (newUser: any) => {
 };
 
 export const login = async (newUser: any) => {
-  console.log(newUser);
   const result = await fetch(`${baseURI}/login`, {
     method: 'post',
     headers: {

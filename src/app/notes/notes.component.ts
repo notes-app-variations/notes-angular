@@ -19,6 +19,10 @@ export class NotesComponent implements OnInit {
     this.filteredNotes = this.notes;
   }
 
+  goToNote(n) {
+    this.router.navigate(['/note'], { queryParams: n });
+  }
+
   bulkDelete() {
     alert('bulkDelete');
   }

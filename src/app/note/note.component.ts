@@ -10,13 +10,13 @@ export class NoteComponent implements OnInit {
   loading = false;
   alert = '';
 
-  constructor(private route: ActivatedRoute) {}
-
-  ngOnInit() {
-    this.route.paramMap.subscribe((params) => {
-      //  this.note = notes[+params.get('noteId')];
+  constructor(private route: ActivatedRoute) {
+    this.route.queryParams.subscribe((params) => {
+      this.note = params;
     });
   }
+
+  ngOnInit() {}
 
   create() {
     alert('create');
